@@ -56,6 +56,7 @@ public class InterfaceCalculadora extends javax.swing.JFrame {
         num8 = new java.awt.Label();
         historico = new javax.swing.JPanel();
         history = new java.awt.List();
+        label1 = new java.awt.Label();
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -293,6 +294,10 @@ public class InterfaceCalculadora extends javax.swing.JFrame {
 
         history.setBackground(new java.awt.Color(204, 204, 204));
         history.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        history.setEnabled(false);
+
+        label1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        label1.setText("Historico");
 
         javax.swing.GroupLayout historicoLayout = new javax.swing.GroupLayout(historico);
         historico.setLayout(historicoLayout);
@@ -300,14 +305,20 @@ public class InterfaceCalculadora extends javax.swing.JFrame {
             historicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(historicoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(history, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(historicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(history, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(historicoLayout.createSequentialGroup()
+                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         historicoLayout.setVerticalGroup(
             historicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(historicoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(history, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(history, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
@@ -601,7 +612,7 @@ public class InterfaceCalculadora extends javax.swing.JFrame {
     public void calcular(){
         Float resultado = Calcular.Display(tela.getText());
         tela.setText(""+resultado);
-        history.add(""+resultado);
+        history.add("Resultado = "+resultado);
     }
     
     public void addNumber(String number){
@@ -655,6 +666,7 @@ public class InterfaceCalculadora extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private java.awt.Label label1;
     private java.awt.Label num0;
     private java.awt.Label num1;
     private java.awt.Label num18;
