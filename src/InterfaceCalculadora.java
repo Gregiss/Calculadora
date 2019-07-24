@@ -565,6 +565,7 @@ public class InterfaceCalculadora extends javax.swing.JFrame {
     private void num19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_num19MouseClicked
        tela.setText("");
        tela1.setText("");
+       this.continha.setText("");
     }//GEN-LAST:event_num19MouseClicked
 
     private void num20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_num20MouseClicked

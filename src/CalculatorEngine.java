@@ -1,3 +1,6 @@
+
+import java.text.DecimalFormat;
+
 public class CalculatorEngine {
     private float value, keep;
     private int toDo;
@@ -12,6 +15,7 @@ public class CalculatorEngine {
         System.out.println(keep + "|" + toDo);
     }
     float Display(String tela){
+        DecimalFormat df = new DecimalFormat("#.00");
         value = Float.parseFloat(tela);
         System.out.println(value + "|" + toDo);
         switch(toDo){
