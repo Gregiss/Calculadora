@@ -22,6 +22,7 @@ public class InterfaceCalculadora extends javax.swing.JFrame {
     public InterfaceCalculadora() {
         initComponents();
         historico.setVisible(false);
+        this.continha.setVisible(false);
     }
 
     /**
@@ -62,6 +63,7 @@ public class InterfaceCalculadora extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         tela1 = new java.awt.Label();
         jLabel1 = new javax.swing.JLabel();
+        continha = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -453,8 +455,13 @@ public class InterfaceCalculadora extends javax.swing.JFrame {
                 .addComponent(tela1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel2)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(continha)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -464,8 +471,11 @@ public class InterfaceCalculadora extends javax.swing.JFrame {
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(continha))
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -561,24 +571,28 @@ public class InterfaceCalculadora extends javax.swing.JFrame {
        Calcular.Operation(1,tela.getText());
        tela.setText("");
        tela1.setText(tela1.getText() + " - ");
+       this.continha.setText(this.continha.getText() + "-");
     }//GEN-LAST:event_num20MouseClicked
 
     private void num21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_num21MouseClicked
         Calcular.Operation(2,tela.getText());
         tela.setText("");
         tela1.setText(tela1.getText() + " * ");
+        this.continha.setText(this.continha.getText() + "*");
     }//GEN-LAST:event_num21MouseClicked
 
     private void num22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_num22MouseClicked
         Calcular.Operation(3,tela.getText());
         tela.setText("");
         tela1.setText(tela1.getText() + " ÷ ");
+        this.continha.setText(this.continha.getText() + "÷");
     }//GEN-LAST:event_num22MouseClicked
 
     private void num23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_num23MouseClicked
         Calcular.Operation(0,tela.getText());
         tela.setText("");
         tela1.setText(tela1.getText() + " + ");
+        this.continha.setText(this.continha.getText() + "+");
     }//GEN-LAST:event_num23MouseClicked
 
     private void num8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_num8MouseClicked
@@ -612,12 +626,14 @@ public class InterfaceCalculadora extends javax.swing.JFrame {
     public void calcular(){
         Float resultado = Calcular.Display(tela.getText());
         tela.setText(""+resultado);
-        history.add("Resultado = "+resultado);
+        String conta = this.continha.getText();
+        history.add(conta+"="+resultado);
     }
     
     public void addNumber(String number){
         String telaAtual = tela.getText();
         tela.setText(telaAtual + number);
+        this.continha.setText(this.continha.getText() + number);
         tela1.setText(tela1.getText() + " " + number);
     }
     /**
@@ -656,6 +672,7 @@ public class InterfaceCalculadora extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel continha;
     private javax.swing.JPanel historico;
     private java.awt.List history;
     private javax.swing.JLabel jLabel1;
